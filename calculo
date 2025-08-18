@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    float D,P=3.14,Circunferencia,Area,Volumen,R;
+    cout<<"ingresar diametro";
+    cin >> D;
+    R=D/2;
+    Circunferencia=P*D;
+    Area= 4*P*R*R;
+    Volumen= (4/3)*P*R*R*R;
+    cout<< "Circunferencia="<< Circunferencia<<endl;
+    cout<< "Area="<< Area<<endl;
+    cout<< "Volumen="<< Volumen<<endl;
+    return 0;
+}
