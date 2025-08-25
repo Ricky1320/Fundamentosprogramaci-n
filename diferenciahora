@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cstdlib> // para usar abs()
+using namespace std;
+int main()
+{
+    int h1, m1, s1;
+    char c1, c2, c3, c4;
+    cout<<"Ingresar hora inicial HH:MM:SS";
+    cin >> h1 >> c1 >> m1 >> c2 >> s1;
+    int h2, m2, s2;
+    cout<< "Ingresar hora final HH:MM:SS";
+    cin >> h2 >> c3 >> m2 >> c4 >> s2;  
+    int seg1= (h1*3600)+(m1*60)+(s1);
+    int seg2= (h2*3600)+(m2*60)+(s2);
+    int Diferencia= abs(seg1-seg2);
+    int h3= Diferencia/3600;
+    int resto= Diferencia%3600;
+    int m3= resto/60;
+    int s3= resto%60;
+    cout<< "la diferencia es de :" <<h3<<":"<<m3<<":"<<s3;
+    return 0;
+}
