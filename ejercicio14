@@ -1,0 +1,70 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int opcion;
+    // Se cambia el tipo de dato a float para manejar decimales
+    float precio, total; 
+    // Se inicializa suma a 0 para acumular el total
+    float suma = 0; 
+    int cantidad;
+
+    // Bucle do...while para ejecutar al menos una vez y repetir si la opción no es 0
+    do {
+        cout << "Menu" << endl;
+        cout << "1: Hamburguesa" << endl;
+        cout << "2: Hamburguesa con queso" << endl;
+        cout << "3: Papas fritas" << endl;
+        cout << "4: Soda" << endl;
+        cout << "0: Salir" << endl;
+        cout << "ingrese su opcion (1,2,3,4,0): ";
+        cin >> opcion;
+        
+        precio = 0; // Se reinicia el precio en cada iteración para evitar cálculos incorrectos
+
+        // Se agregan los dos puntos (:) a cada caso
+        switch (opcion) {
+            case 1:
+                precio = 3;
+                break;
+            case 2:
+                precio = 5;
+                break;
+            case 3:
+                precio = 2;
+                break;
+            case 4:
+                // Se corrige el decimal a punto (.)
+                precio = 2.5; 
+                break;
+            case 0:
+                cout << "saliendo..." << endl;
+                break;
+            default: // Se agregan los dos puntos (:) a default
+                cout << "Error: Opcion no valida." << endl;
+        }
+
+        if (precio > 0) {
+            cout << "ingrese la cantidad: ";
+            cin >> cantidad;
+            total = cantidad * precio;
+            suma = suma + total;
+            cout << "Subtotal del pedido: $" << total << endl;
+        }
+
+    } while (opcion != 0);
+
+    cout << "El total acumulado es: $" << suma << endl;
+
+    return 0;
+}
