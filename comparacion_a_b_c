@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float A,B,C,D,E,P;
+    cout<<"Ingresar Primero numero";
+    cin>> A;
+    cout<< "ingresar segundo numero";
+    cin>> B;
+    cout<< "ingresar tercer numero";
+    cin>> C;
+    D= A+B+C;
+    if(D<=30){
+        E=D/3;
+        cout<<"el promedio es"<<E;
+    }
+    else{
+        if(A>10){
+            cout<<"El Numero"<<A<<"es incorrecto";
+        }
+        else{
+            if(B>10){
+                cout<<"el numero"<<B<<"es incorrecto";
+            }
+            else{
+                if(C>10){
+                    cout<<"el numero"<<C<<"es incorrecto";
+                }
+                else{
+                    cout<<"el promedio es"<<E;
+                }
+            }
+        }
+    }
+    return 0;
+}
