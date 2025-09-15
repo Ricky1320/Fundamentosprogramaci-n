@@ -1,0 +1,33 @@
+Algoritmo sin_titulo
+	Escribir "ingresar primer numero"
+	leer A
+	Si ((A>=0)y(A<=10)) Entonces
+		Escribir "ingresar segundo numero"
+		leer B
+		Si ((B>=0)y(B<=10)) Entonces
+			Escribir "ingresar tercer numero"
+			leer C
+			Si ((C>=0)y(C<=10))Entonces
+				Escribir "ingresar cuarto numero"
+				leer D
+				Si ((D>=0)y(D<=10)) Entonces
+					Escribir "ingresar quinto numero"
+					Leer E
+					Si ((E>=0)y(E<=10)) Entonces
+						promedio<-A+B+C+D+E/5
+					SiNo
+						Escribir "Error", E, "no es numero valido"
+					Fin Si
+				SiNo
+					Escribir "Error", D, "no es numero valido"
+				Fin Si
+			SiNo
+				Escribir "Error", C, "no es numero valido"
+			Fin Si
+		SiNo
+			Escribir "Error", B, "no es numero valido"
+		Fin Si
+	SiNo
+		Escribir "Error", A, "no es numero valido"
+	Fin Si
+FinAlgoritmo
