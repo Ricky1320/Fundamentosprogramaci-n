@@ -1,0 +1,16 @@
+'''
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+'''
+suma=0
+suma+= int(input('ingresar nota 1'))
+suma+= int(input('ingresar nota 2'))    
+suma+= int(input('ingresar nota 3'))
+suma+= int(input('ingresar nota 4'))
+suma+= int(input('ingresar nota 5'))
+promedio= suma/5
+print(f"\nEl promedio es{promedio}")
