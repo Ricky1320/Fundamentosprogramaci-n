@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+#include <cmath>
+
+int main()
+{
+    int x, d, cm9, complemento;
+    cout << "ingrese un numero";
+    cin >> x;
+    if(x==0) {
+        d = 1;
+    }
+    else {
+        d = log10(x) + 1;
+    }
+    cm9 = pow(10, d) - 1;
+    complemento = cm9 - x;
+    cout << "el complemento a 9 es" << complemento;
+    return 0;
+}
