@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float pu, c, pd, pt, tp, monto_descuento;
+
+    do {
+        cout << "Ingresar el precio unitario: ";
+        cin >> pu;
+    } while (pu <= 0);
+
+   
+    do {
+        cout << "Ingresar la cantidad: ";
+        cin >> c;
+    } while (c <= 0);
+
+    
+    do {
+        cout << "Ingresar descuento (%): ";
+        cin >> pd;
+    } while (pd <= 0 || pd >= 100);
+
+    // Cálculos
+    pt = pu * c;                          // Subtotal
+    monto_descuento = pt * (pd / 100);   // Monto del descuento
+    tp = pt - monto_descuento;           // Total a pagar
+
+    // Resultados
+    cout << "El subtotal es: " << pt << " Bs." << endl;
+    cout << "El monto de descuento es: " << monto_descuento << " Bs." << endl;
+    cout << "El total a pagar es: " << tp << " Bs." << endl;
+
+    return 0;
+}
