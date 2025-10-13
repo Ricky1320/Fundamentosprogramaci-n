@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	float m, mt;
+	do {
+		cout << "ingresar el monto total";
+		cin >> m;
+	} while (m <= 0);
+	if(m>300){
+		mt = m * 0.9;
+		cout << "el monto total es " << mt << "bs";
+	}
+	else {
+		cout << "el monto total es" << m << "bs.";
+	}
+	return 0;
+}
