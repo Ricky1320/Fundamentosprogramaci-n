@@ -1,0 +1,230 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int POTEN(int x, int y);
+
+int main()
+{
+	int x, y;
+	cout << "ingresar el primer numero: "<< endl;
+	cin >> x;
+	cout << "ingresar el segundo numero: "<< endl;
+	cin >> y;
+	cout << "el resultado es: " << POTEN(x, y) << endl;
+}
+
+int POTEN(int x, int y)
+{
+    int p = 0;
+	p = pow(x, y);
+	return p;
+}
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+int FAC(int n);
+
+int main()
+{
+	int n;
+  do{
+	cout << "Ingrese un numero para calcular su factorial: ";
+	cin >> n;
+  if(n<0){
+    cout<<"el numero es negativo, volver a ingresar";
+    }
+  } while (n < 0);
+	cout << "El factorial de " << n << " es: " << FAC(n) << endl;
+}
+
+int FAC(int n)
+{
+	int suma = 1;
+	for(int i = 1; i <= n; i++)
+		suma *= i;
+		return suma;
+}
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+float SUMA(int x, int n);
+int FAC(int n);
+
+int main()
+{
+	int x, n;
+	do {
+		cout << "Ingrese el valor de x: ";
+		cin >> x;
+		cout << "Ingrese el valor de n: ";
+		cin >> n;
+		if(x<0|| n<0){
+			cout << "Error: x y n deben ser numeros enteros positivos." << endl;
+		}
+	} while (x < 0 || n < 0);
+	cout << "El resultado de la suma es: " << SUMA(x, n) << endl;
+}
+
+float SUMA(int x, int n) {
+	float suma = 0;
+	for (int i = 1; i <= n; i++) 
+		suma += pow(x, i) / FAC(i);
+	return suma;
+}
+int FAC(int n) {
+	int factorial = 1;
+	for (int i = 1; i <= n; i++)
+		factorial *= i;
+	return factorial;
+}
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+float SUMA(int x, int n);
+int FAC(int n);
+
+int main()
+{
+	int x, n;
+	do {
+		cout << "Ingrese el valor de x: ";
+		cin >> x;
+		cout << "Ingrese el valor de n: ";
+		cin >> n;
+		if(x<0|| n<0){
+			cout << "Error: x y n deben ser numeros enteros positivos." << endl;
+		}
+	} while (x < 0 || n < 0);
+	cout << "El resultado de la suma es: " << SUMA(x, n) << endl;
+}
+
+float SUMA(int x, int n) {
+	float suma = 0;
+	int p = 2, signo = 0;
+	for (int i = 1; i <= n; i++) {
+		signo = pow(-1, p);
+		suma += (pow(x, i) / FAC(i)) * signo;
+		p = p + 1;
+		i = i + 1;
+	}
+	return suma;
+}
+int FAC(int n) {
+	int factorial = 1;
+	for (int i = 1; i <= n; i++)
+		factorial *= i;
+	return factorial;
+}
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+void SISTEMA(float a, float b, float c, float d, float e, float f, float x, float y);
+
+int main() {
+	float a, b, c, d, e, f, x = 0, y = 0, det = 0;
+	cout << "*********sistema**********" << endl;
+	cout << "Ax+By+C=0*****************" << endl;
+	cout << "Dx+Ey+F=0*****************" << endl;
+	cout << "ingrese A" << endl;
+	cin >> a;
+	cout << "ingrese B" << endl;
+	cin >> b;
+	cout << "ingrese C" << endl;
+	cin >> c;
+	cout << "ingrese D" << endl;
+	cin >> d;
+	cout << "ingrese E" << endl;
+	cin >> e;
+	cout << "ingrese F" << endl;
+	cin >> f;
+	det = (a * e) - (b * d);
+	if (det != 0) {
+		cout << "el sistema tiene solucion unica" << endl;
+		cout << "la solucion es: " << endl;
+		SISTEMA(a, b, c, d, e, f, x, y);
+	}
+	else {
+		cout << "el sistema no tiene solucion unica" << endl;
+	}
+}
+
+void SISTEMA(float a, float b, float c, float d, float e, float f, float x, float y) {
+	float det = 0, detx = 0, dety = 0;
+	det = (a * e) - (b * d);
+	detx = ((-c) * e) - (b * (-f));
+	dety = (a * (-f)) - ((-c) * d);
+	x = detx / det;
+	y = dety / det;
+	cout << "el valor de x es: " << x << endl;
+	cout << "el valor de y es: " << y << endl;
+}
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+void LITERAL(int a, int b, int c);
+
+int main() {
+	int a, b, c;
+	do {
+		cout << "ingresar fecha de nacimiento (dd mm aa): ";
+		cin >> a >> b >> c;
+		if (a < 1 || a>31 || b < 1 || b>12 || c < 0 || c>99) {
+			cout << "fecha invalida, intente de nuevo" << endl;
+		}
+	} while (a < 1 || a>31 || b < 1 || b>12 || c < 0 || c>99);
+	LITERAL(a, b, c);
+	return 0;
+}
+
+void LITERAL(int a, int b, int c) {
+	float  anio = 0;
+	if(c >= 0 && c <= 21) {
+		anio = c + 2000;
+	}
+	else {
+		anio = c + 1900;
+	}
+	switch (b) {
+	case 1:
+		cout << "fecha de nacimiento: " << a << " de enero del " << anio;
+		break;
+	case 2:
+		cout << "fecha de nacimiento: " << a << " de febrero del " << anio;
+		break;
+	case 3:
+		cout << "fecha de nacimiento: " << a << " de marzo del " << anio;
+		break;
+	case 4:
+		cout << "fecha de nacimiento: " << a << " de abril del " << anio;
+		break;
+	case 5:
+		cout << "fecha de nacimiento: " << a << " de mayo del " << anio;
+		break;
+	case 6:
+		cout << "fecha de nacimiento: " << a << " de junio del " << anio;
+		break;
+	case 7:
+		cout << "fecha de nacimiento: " << a << " de julio del " << anio;
+		break;
+	case 8:
+		cout << "fecha de nacimiento: " << a << " de agosto del " << anio;
+		break;
+	case 9:
+		cout << "fecha de nacimiento: " << a << " de septiembre del " << anio;
+		break;
+	case 10:
+		cout << "fecha de nacimiento: " << a << " de octubre del " << anio;
+		break;
+	case 11:
+		cout << "fecha de nacimiento: " << a << " de noviembre del " << anio;
+		break;
+	case 12:
+		cout << "fecha de nacimiento: " << a << " de diciembre del " << anio;
+		break;
+	}
+}
