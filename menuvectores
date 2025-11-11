@@ -1,0 +1,126 @@
+#include <iostream>
+#include "stdlib.h"
+#include <string>
+#define MAX 100 
+using namespace std;
+void CARGAR(int vec[], int n);
+void MOSTRAR(int vec[], int n);
+void BURBUJA(int vec[], int n);
+void CARGAR2(int notas[], string nombres[], int tamano);
+void BURBUJA2(int notas[], string nombres[], int tamano);
+void MOSTRAR2(int notas[], string nombres[], int tamano);
+
+
+
+void main()
+{
+	int b, vec[MAX], notas[MAX], tamano;
+	string nombres[MAX];
+	int opcion;
+	// Menu
+	do {
+		cout << "ingresar tamano de vector";
+		cin >> b;
+		if (b <= 0 || b > 100) {
+			cout << "tamano invalido" << endl;
+		}
+	} while (b <= 0 || b > 100);
+	do {
+		//Desplegar las opciones
+		cout << "\t\t Menu \n";
+		cout << "\t\t ==== \n";
+		cout << "1. Cargar\n";
+		cout << "2. Mostrar\n";
+		cout << "3. Ordenar\n";
+		cout << "4. Arreglos paralelos\n";
+		cout << "0. Salir\n";
+		cout << "Opcion: ";
+		cin >> opcion;
+		// Condicional multiple
+		switch (opcion)
+		{
+		case 1:
+			CARGAR(vec, b);
+			break;
+		case 2:
+			MOSTRAR(vec, b);
+			break;
+		case 3:
+			BURBUJA(vec, b);
+			MOSTRAR(vec, b);
+			break;
+		case 4:
+			do {
+				cout << "ingrese cantidad de alumnos" << endl;
+				cin >> tamano;
+				if (tamano <= 0 || tamano > 100)
+					cout << "tamano invalido" << endl;
+			} while (tamano <= 0 || tamano > 100);
+			CARGAR2(notas, nombres, tamano);
+			BURBUJA2(notas, nombres, tamano);
+			MOSTRAR2(notas, nombres, tamano);
+			break;
+		case 0: cout << "Saliendo del Menu";
+			break;
+		default: cout << "ERROR de opcion";
+			break;
+		}
+		system("cls");
+	} while (opcion != 0);
+
+}
+void CARGAR(int vec[], int n) {
+	for (int i = 0; i < n; i++) {
+		cout << "ingresar valor " << i << endl;
+		cin >> vec[i];
+	}
+}
+void MOSTRAR(int vec[], int n) {
+	cout << "el vector es" << endl;
+	for (int i = 0; i < n; i++) {
+		cout << vec[i] << endl;
+	}
+}
+void BURBUJA(int vec[], int n) {
+	int temp = 0;
+	for (int i = 0; i < n - 1; i++) {
+		for (int j = 0; j < n - i - 1; j++) {
+			if (vec[j] > vec[j + 1]) {
+				temp = vec[j];
+				vec[j] = vec[j + 1];
+				vec[j + 1] = temp;
+			}
+		}
+	}
+}
+void CARGAR2(int notas[], string nombres[], int tamano) {
+	for (int i = 0; i < tamano; i++) {
+		cout << "Ingresar el nombre" << endl;
+		cin >> nombres[i];
+		cout << "ingresar nota" << endl;
+		cin >> notas[i];
+	}
+}
+void BURBUJA2(int notas[], string nombres[], int tamano) {
+	string aux = "";
+	int aux2 = 0;
+	for (int i = 0; i < tamano - 1; i++) {
+		for (int j = 0; j < tamano - i - 1; j++) {
+			if (nombres[j] > nombres[j + 1]) {
+				aux = nombres[j];
+				aux2 = notas[j];
+				nombres[j] = nombres[j + 1];
+				nombres[j + 1] = aux;
+				notas[j] = notas[j + 1];
+				notas[j + 1] = aux2;
+			}
+		}
+	}
+}
+void MOSTRAR2(int notas[], string nombres[], int tamano) {
+	cout << "Lista de alumnos ordenados por nombre" << endl;
+	for (int i = 0; i < tamano; i++) {
+		cout << "Lista" << endl;
+		cout << nombres[i] << "\t" << notas[i] << "\n" << endl;
+	}
+}
