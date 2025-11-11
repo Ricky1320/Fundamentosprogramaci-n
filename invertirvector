@@ -1,0 +1,49 @@
+EJERCICIO 13
+#include <iostream>
+#include <cmath>
+using namespace std;
+#define MAX 100
+void CARGAR(int vec[], int tamano);
+void INVERTIR(int vec[], int  tamano);
+void MOSTRAR(int vec[], int tamano);
+
+int main() {
+	int tamano;
+	do{
+		cout << "ingresar tamano del vector (max " << MAX << "):" << endl;
+		cin >> tamano;
+		if(tamano <1 || tamano > MAX){
+			cout << "tamano invalido, intente de nuevo." << endl;
+		}
+	} while (tamano <1 || tamano > MAX);
+
+	int vec[MAX];
+	CARGAR(vec, tamano);
+	INVERTIR(vec, tamano);
+	MOSTRAR(vec, tamano);
+	return 0;
+}
+
+void CARGAR(int vec[], int tamano) {
+	int i;
+	cout << "ingresar los elementos del vector" << endl;
+	for (i = 0; i < tamano; i++) {
+		cout << "vector [" << i <<"]"<<"=";
+		cin >> vec[i];
+	}
+}
+void INVERTIR(int vec[], int tamano) {
+	int i, aux;
+	for (i = 0; i < tamano / 2; i++) {
+		aux = vec[i];
+		vec[i] = vec[tamano - 1 - i];
+		vec[tamano - 1 - i] = aux;
+	}
+}
+void MOSTRAR(int vec[], int tamano) {
+	int i;
+	cout << "el vector invertido es:" << endl;
+	for (i = 0; i < tamano; i++){
+		cout << "vector [" << i << "]=" << vec[i] << endl;
+	}
+}
