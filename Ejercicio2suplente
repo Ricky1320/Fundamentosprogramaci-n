@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+#define MAX 100
+
+void CARGAR(string nombres[], int n);
+int contarVocales(string nombre);
+void MOSTRAR(string nombres[], int n);
+
+int main() {
+    int n;
+    string nombres[MAX];
+
+    do {
+        cout << "Ingrese la cantidad de nombres: ";
+        cin >> n;
+        if (n <= 0) {
+            cout << "Cantidad invalida. Intente de nuevo." << endl;
+        }
+    } while (n <= 0);
+
+    CARGAR(nombres, n);
+    MOSTRAR(nombres, n);
+
+    return 0;
+}
+
+void CARGAR(string nombres[], int n) {
+    cout << "Ingrese los nombres:" << endl;
+    for (int i = 0; i < n; i++) {
+        cin >> nombres[i];
+    }
+}
+
+int contarVocales(string nombre) {
+    int contador = 0;
+    for (int i = 0; i < nombre.length(); i++) {
+        char c = tolower(nombre[i]);
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            contador++;
+        }
+    }
+    return contador;
+}
+
+void MOSTRAR(string nombres[], int n) {
+    int maxVocales = contarVocales(nombres[0]);
+    int minVocales = contarVocales(nombres[0]);
+    string nombreMasVocales = nombres[0];
+    string nombreMenosVocales = nombres[0];
+
+    for (int i = 1; i < n; i++) {
+        int vocales = contarVocales(nombres[i]);
+
+        if (vocales > maxVocales) {
+            maxVocales = vocales;
+            nombreMasVocales = nombres[i];
+        }
+
+        if (vocales < minVocales) {
+            minVocales = vocales;
+            nombreMenosVocales = nombres[i];
+        }
+    }
+
+    cout << "\nNombre con mas vocales: " << nombreMasVocales
+        << " (" << maxVocales << ")" << endl;
+    cout << "Nombre con menos vocales: " << nombreMenosVocales
+        << " (" << minVocales << ")" << endl;
+}
